@@ -1,0 +1,47 @@
+name: manual_run
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: false
+        default: 'info'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Git
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT }}
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.2.1'
+    - name: Setup renv
+      uses: r-lib/actions/setup-renv@v2
+      with:
+        cache-version: 0
+      env:
+        RENV_CONFIG_REPOS_OVERRIDE: "https://packagemanager.rstudio.com/all/latest"
+    - name: Run apto
+      run: Rscript main.R
+      env:
+        R_TELEGRAM_BOT_tuzarbsbot: ${{ secrets.R_TELEGRAM_BOT_tuzarbsbot }}
+    - name: Push Changes
+      continue-on-error: true
+      run: |-
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "Github Action: update data"
+        git pull
+        git push

@@ -24,9 +24,13 @@ is_interesting <- function(neighbourhood) {
   neighbourhoods <- c(
     "Anchieta",
     "Cidade Jardim",
+    "Colégio Batista",
     "Cruzeiro",
     "Funcionários",
+    "Gutierrez",
     "Luxemburgo",
+    "Prado",
+    "Sagrada Família",
     "Santa Efigênia",
     "Santa Lúcia",
     "Santa Tereza",

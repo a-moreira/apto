@@ -1,7 +1,7 @@
 name: run
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '44 * * * *'
 concurrency:
   group: ${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
@@ -33,6 +33,6 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
-        git commit -m "update data"
+        git commit -m "Github Action: update data"
         git pull
         git push

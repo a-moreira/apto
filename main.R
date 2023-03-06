@@ -24,15 +24,9 @@ is_interesting <- function(neighbourhood) {
   neighbourhoods <- c(
     "Anchieta",
     "Cidade Jardim",
-    "Colégio Batista",
     "Cruzeiro",
     "Funcionários",
-    "Gutierrez",
-    "Horto Florestal",
     "Luxemburgo",
-    "Padre Eustáquio",
-    "Prado",
-    "Sagrada Família",
     "Santa Efigênia",
     "Santa Lúcia",
     "Santa Tereza",
@@ -51,6 +45,7 @@ is_interesting <- function(neighbourhood) {
 data <- "data/url.txt" |>
   read_lines() |>
   request() |>
+  req_user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36") |>
   req_perform() |>
   resp_body_json() |>
   chuck("hits") |>
@@ -70,10 +65,10 @@ if (file.exists(path)) {
 
 aptos <- data |>
   filter(
-    bedrooms >= 3,
+    bedrooms >= 2,
     is_interesting(neighbourhood),
     parkingSpaces >= 1,
-    totalCost <= 2300
+    totalCost <= 3000
   ) |>
   mutate(url = glue("https://www.quintoandar.com.br/imovel/{id}/")) |>
   anti_join(old, by = "id") |>
@@ -87,8 +82,8 @@ old |>
 
 # Telegram ---------------------------------------------------------------------
 
-bot <- TGBot$new(token = bot_token("aptobot"))
-bot$set_default_chat_id("-763183926")
+bot <- TGBot$new(token = bot_token("tuzarbsbot"))
+bot$set_default_chat_id("-929083173")
 aptos |>
   pmap(list) |>
   map(function(x) paste(names(x), "=", x)) |>

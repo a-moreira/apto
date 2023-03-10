@@ -72,7 +72,7 @@ aptos <- data |>
     bedrooms >= 2,
     is_interesting(neighbourhood),
     parkingSpaces >= 1,
-    totalCost <= 3000
+    totalCost <= 3500
   ) |>
   mutate(url = glue("https://www.quintoandar.com.br/imovel/{id}/")) |>
   anti_join(old, by = "id") |>

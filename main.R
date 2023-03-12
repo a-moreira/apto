@@ -32,7 +32,6 @@ is_interesting <- function(neighbourhood) {
     "Prado",
     "Sagrada Família",
     "Santa Efigênia",
-    "Santa Lúcia",
     "Santa Tereza",
     "Santo Antônio",
     "Savassi",

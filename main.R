@@ -27,8 +27,6 @@ is_interesting <- function(neighbourhood) {
     "Colégio Batista",
     "Cruzeiro",
     "Funcionários",
-    "Gutierrez",
-    "Prado",
     "Santa Efigênia",
     "Santa Tereza",
     "Santo Antônio",

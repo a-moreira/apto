@@ -34,5 +34,5 @@ jobs:
         git config user.email github-actions@github.com
         git add .
         git commit -m "Github Action: update data"
-        git pull
-        git push
+        git pull --rebase
+        git push -f

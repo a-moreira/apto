@@ -28,8 +28,6 @@ jobs:
       env:
         R_TELEGRAM_BOT_tuzarbsbot: ${{ secrets.R_TELEGRAM_BOT_tuzarbsbot }}
     - name: Push Changes
-      permissions:
-        contents: write
       continue-on-error: true
       run: |-
         git config user.name github-actions

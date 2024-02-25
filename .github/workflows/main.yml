@@ -43,5 +43,5 @@ jobs:
         git config user.email github-actions@github.com
         git add .
         git commit -m "Github Action: update data"
-        git pullpull.rebase true
+        git pull.rebase true
         git push -f

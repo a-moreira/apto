@@ -23,13 +23,18 @@ repair_names <- partial(
 is_interesting <- function(neighbourhood) {
   neighbourhoods <- c(
     "Anchieta",
+    "Alto Barroca",
+    "Barroca",
     "Cidade Jardim",
     "Colégio Batista",
     "Cruzeiro",
     "Funcionários",
+    "Gutierrez",
     "Santa Efigênia",
+    "Santa Lúcia",
     "Santa Tereza",
     "Santo Antônio",
+    "Santo Agostinho",
     "Savassi",
     "Serra",
     "Sion",
@@ -64,10 +69,10 @@ if (file.exists(path)) {
 
 aptos <- data |>
   filter(
-    bedrooms >= 3,
+    bedrooms >= 2,
     is_interesting(neighbourhood),
     parkingSpaces >= 1,
-    totalCost <= 3200
+    totalCost <= 3000
   ) |>
   mutate(url = glue("https://www.quintoandar.com.br/imovel/{id}/")) |>
   anti_join(old, by = "id") |>

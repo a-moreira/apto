@@ -28,8 +28,10 @@ is_interesting <- function(neighbourhood) {
     "Cidade Jardim",
     "Colégio Batista",
     "Cruzeiro",
+    "Floresta",
     "Funcionários",
     "Gutierrez",
+    "Sagrada Família",
     "Santa Efigênia",
     "Santa Lúcia",
     "Santa Tereza",
@@ -39,7 +41,8 @@ is_interesting <- function(neighbourhood) {
     "Serra",
     "Sion",
     "São Lucas",
-    "São Pedro"
+    "São Pedro",
+    "Prado,
   )
   neighbourhood %in% neighbourhoods
 }

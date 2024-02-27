@@ -42,7 +42,7 @@ is_interesting <- function(neighbourhood) {
     "Sion",
     "São Lucas",
     "São Pedro",
-    "Prado,
+    "Prado
   )
   neighbourhood %in% neighbourhoods
 }

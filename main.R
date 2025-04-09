@@ -72,7 +72,7 @@ if (file.exists(path)) {
 
 aptos <- data |>
   filter(
-    bedrooms >= 2,
+    bedrooms <= 2,
     is_interesting(neighbourhood),
     parkingSpaces >= 1,
     totalCost <= 3000
